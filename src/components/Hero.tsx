@@ -31,12 +31,11 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <span className="inline-block bg-khoisan-terracotta/90 text-white px-4 py-1 rounded-full text-sm mb-6 backdrop-blur-sm">
-            Experience the Wild With Luxury
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Discover Ancient Wisdom in Modern Adventure
-          </h1>
+          <img
+            src="/lovable-uploads/0e2cfeb3-9575-4d41-8fc7-eb39d3f8099f.png"
+            alt="Khoisan Adventure Travels"
+            className="w-80 md:w-96 mx-auto mb-8"
+          />
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Join us for an unforgettable journey through the Cederberg mountains,
             where traditional Khoisan culture meets luxury adventure travel.
