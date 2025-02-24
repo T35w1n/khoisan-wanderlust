@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface TourCardProps {
   tour: {
@@ -53,12 +54,12 @@ const TourCard = ({ tour }: TourCardProps) => {
           <span className="text-2xl font-bold text-khoisan-brown">
             R{tour.price}
           </span>
-          <button
+          <Link
+            to={`/tour/${tour.id}`}
             className="bg-khoisan-terracotta hover:bg-khoisan-brown text-white px-4 py-2 rounded-full transition-colors duration-300"
-            onClick={() => window.location.href = `/tour/${tour.id}`}
           >
             Book Now
-          </button>
+          </Link>
         </div>
       </div>
     </motion.div>
