@@ -16,55 +16,72 @@ const TourDetail = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // Find the tour from our data
-  // Note: In a real app, this would come from an API/database
   const tours = [
     {
       id: 1,
-      title: "Cederberg Heritage Trail",
-      description: "A 3-day journey through ancient rock art sites and traditional settlements. Experience the rich history of the Khoisan people while hiking through breathtaking landscapes. Our expert guides will share stories and knowledge passed down through generations.",
-      duration: "3 Days",
-      price: 2499,
+      title: "Full-Day Khoisan Experience",
+      description: "An immersive journey through authentic Khoisan culture in the Cederberg wilderness. From traditional bushcraft and rock art to gourmet bush cuisine and stargazing, this exclusive experience offers a unique blend of cultural heritage and luxury adventure.",
+      duration: "Full Day",
+      price: 9900,
       image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
       inclusions: [
-        "Professional guide",
+        "Welcome Rooibos ceremony",
+        "Traditional bush breakfast & lunch",
+        "Gourmet Khoisan-inspired dinner",
+        "Guided bushwalk & hunting demonstration",
+        "Rock art exploration",
+        "Herbal medicine workshop",
+        "Trance dance performance",
+        "Stargazing session",
         "All meals and refreshments",
-        "Camping equipment",
-        "Traditional storytelling sessions",
-        "Rock art site visits",
-        "Safety equipment"
-      ]
-    },
-    {
-      id: 2,
-      title: "Desert Stars Experience",
-      description: "2-day camping adventure under the clearest night skies. Learn about traditional Khoisan astronomy and their connection to the stars. Experience the magic of the desert at night with expert guides.",
-      duration: "2 Days",
-      price: 1899,
-      image: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d",
-      inclusions: [
-        "Stargazing equipment",
-        "Traditional astronomy lessons",
-        "All meals and drinks",
-        "Camping gear",
-        "Night photography workshop",
-        "Transport from base camp"
-      ]
-    },
-    {
-      id: 3,
-      title: "Bush Survival Skills",
-      description: "Learn traditional survival techniques in a 4-day immersive experience. Master the ancient skills of the Khoisan people, from tracking to finding water sources.",
-      duration: "4 Days",
-      price: 2999,
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
-      inclusions: [
-        "Survival training materials",
-        "Traditional tool making workshop",
-        "All meals and water",
-        "Camping equipment",
-        "First aid supplies",
-        "Certificate of completion"
+        "Traditional gifts to take home"
+      ],
+      itinerary: [
+        {
+          time: "07:00",
+          title: "Welcome & Rooibos Sunrise Ceremony",
+          description: "Start your day with a traditional welcome ceremony and rooibos tea served in calabash cups while watching the sunrise over the Cederberg mountains."
+        },
+        {
+          time: "08:00",
+          title: "Authentic Bush Breakfast",
+          description: "Enjoy a luxurious bush breakfast cooked over open coals, featuring traditional Khoisan ingredients and cooking methods."
+        },
+        {
+          time: "09:00",
+          title: "Guided Bushwalk & Hunting Demonstration",
+          description: "Learn traditional tracking, foraging, and hunting techniques during a 3-hour guided experience."
+        },
+        {
+          time: "12:30",
+          title: "Luxury Khoisan-Inspired Lunch",
+          description: "Experience gourmet wilderness dining in an ancient rock shelter, featuring traditional ingredients with a modern twist."
+        },
+        {
+          time: "14:00",
+          title: "Rock Art Exploration",
+          description: "Visit hidden rock art sites and learn about their spiritual significance through traditional storytelling."
+        },
+        {
+          time: "15:30",
+          title: "Herbal Medicine Workshop",
+          description: "Discover traditional Khoisan healing methods and sample indigenous herbal remedies."
+        },
+        {
+          time: "17:00",
+          title: "Trance Dance & Music Workshop",
+          description: "Experience authentic Khoisan music and dance, including hands-on participation in traditional instruments."
+        },
+        {
+          time: "19:00",
+          title: "Gourmet Bush Dinner",
+          description: "End your day with an exclusive candlelit dinner under the stars, featuring Khoisan-inspired cuisine."
+        },
+        {
+          time: "21:00",
+          title: "Closing Ceremony & Stargazing",
+          description: "Final gathering around the fire with traditional stargazing and farewell gifts."
+        }
       ]
     }
   ];
@@ -81,8 +98,6 @@ const TourDetail = () => {
       return;
     }
 
-    // Here we would typically handle the booking process
-    // For now, we'll just show a success message
     toast.success("Booking request received! We'll contact you soon.");
   };
 
@@ -91,7 +106,7 @@ const TourDetail = () => {
       <Navigation />
       <div className="pt-24 pb-16 px-4">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -139,7 +154,33 @@ const TourDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-12 bg-white rounded-lg shadow-lg p-6"
+            className="mb-12"
+          >
+            <h2 className="text-2xl font-bold text-khoisan-brown mb-6">
+              Detailed Itinerary
+            </h2>
+            <div className="space-y-6">
+              {tour.itinerary.map((item, index) => (
+                <div key={index} className="flex gap-4 items-start">
+                  <div className="min-w-[80px] text-khoisan-brown font-semibold">
+                    {item.time}
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-khoisan-brown">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-white rounded-lg shadow-lg p-6"
           >
             <h2 className="text-2xl font-bold text-khoisan-brown mb-6">
               Book This Tour
