@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +47,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex space-x-8">
-            {["Home", "Tours", "About", "Contact"].map((item) => (
+            {["Home", "Tours", "Store", "About", "Contact"].map((item) => (
               <Link
                 key={item}
                 to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -63,7 +63,7 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white/90 backdrop-blur-md shadow-md py-4 animate-fade-in">
             <div className="flex flex-col space-y-4 px-4">
-              {["Home", "Tours", "About", "Contact"].map((item) => (
+              {["Home", "Tours", "Store", "About", "Contact"].map((item) => (
                 <Link
                   key={item}
                   to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
